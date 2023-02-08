@@ -1,0 +1,65 @@
+.sb-main {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.btn {
+  padding: 14px 21px;
+  border-radius: 26px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  margin-bottom: 5px;
+}
+
+.success {
+  background-color: lightgreen;
+}
+
+.warning {
+  background: yellow;
+  color: firebrick;
+}
+
+.error {
+  background: firebrick;
+}
+
+.primary {
+  background: lightblue;
+}
+
+.large {
+  width: 15rem;
+}
+
+.small {
+  width: 10rem;
+}
+
+.basic-label {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 1rem 5rem;
+}
+
+.products {
+  background: rgb(239, 106, 239);
+  font-size: 18px;
+  font-weight: 500;
+  padding: 1rem 10rem;
+}
+
+.input-basic {
+  font-size: 28px;
+  width: 22rem;
+  background: pink;
+}
+
+.default-label {
+  background: yellowgreen;
+
+  border: 5px solid red;
+  font-size: 18px;
+}
