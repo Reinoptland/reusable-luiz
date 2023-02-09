@@ -7,20 +7,20 @@ import SearchBar from "./components/SearchBar";
 function App() {
   const click = () => {
     console.log("Hey you!");
-
-    const products = [
-      { title: "tablet", price: 80 },
-      { title: "usb adpator", price: 10 },
-      { title: "e-reader", price: 35 },
-      { title: "adaptor-cable", price: 8 },
-      { title: "mobile cable", price: 10 },
-      { title: "notebook", price: 600 },
-      { title: "16-in monitor", price: 35 },
-      { title: "led clipper", price: 5 },
-      { title: "phone charger", price: 12 },
-      { title: "e-chessboard", price: 44 },
-    ];
   };
+
+  const products = [
+    { title: "tablet", price: 80 },
+    { title: "usb adpator", price: 10 },
+    { title: "e-reader", price: 35 },
+    { title: "adaptor-cable", price: 8 },
+    { title: "mobile cable", price: 10 },
+    { title: "notebook", price: 600 },
+    { title: "16-in monitor", price: 35 },
+    { title: "led clipper", price: 5 },
+    { title: "phone charger", price: 12 },
+    { title: "e-chessboard", price: 44 },
+  ];
 
   const clients = [
     {
@@ -104,7 +104,7 @@ function App() {
         <SearchBar
           label={<Label />}
           input={<InputField />}
-          button={<Button />}
+          button={<Button click={click} />}
         />
       </div>
     </div>

@@ -11,7 +11,7 @@ import "./styles.css";
 export default function Button({ variant = "primary", children, ...props }) {
   return (
     <div>
-      <button {...props} className={`btn ${variant}`}>
+      <button {...props} className={`btn ${variant}`} onClick={props.click}>
         go {children}
       </button>
     </div>
