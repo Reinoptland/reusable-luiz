@@ -2,15 +2,7 @@ import React from "react";
 import "./styles.css";
 
 export default function InputField({ variant, children, ...props }) {
-  return (
-    <div>
-      <input
-        {...props}
-        className={`input-basic ${variant}`}
-        placeholder={props.holderplace}
-      />
-    </div>
-  );
+  return <input {...props} className={`input-basic ${variant}`} />;
 }
 
 {

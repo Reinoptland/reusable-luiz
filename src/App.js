@@ -5,15 +5,8 @@ import Label from "./components/Label";
 import SearchBar from "./components/SearchBar";
 import { useState } from "react";
 
-function App() {
-  const [search, setSearch] = useState("");
-  console.log("search:", search);
-
-  const click = () => {
-    console.log("Hey you!");
-  };
-
-  const products = [
+const data = {
+  products: [
     { title: "tablet", price: 80 },
     { title: "usb adaptor", price: 10 },
     { title: "e-reader", price: 35 },
@@ -24,9 +17,8 @@ function App() {
     { title: "led clipper", price: 5 },
     { title: "phone charger", price: 12 },
     { title: "e-chessboard", price: 44 },
-  ];
-
-  const clients = [
+  ],
+  clients: [
     {
       name: "Josephine Smith",
       address: "Mariahilfe Strasse, 21",
@@ -87,9 +79,8 @@ function App() {
       clientNumber: 8877,
       purchases: [1],
     },
-  ];
-
-  const invoices = [
+  ],
+  invoices: [
     { invoiceId: 1, clientId: 8877 },
     { invoiceId: 2, clientId: 1718 },
     { invoiceId: 3, clientId: 4567 },
@@ -100,24 +91,68 @@ function App() {
     { invoiceId: 8, clientId: 432 },
     { invoiceId: 9, clientId: 2345 },
     { invoiceId: 10, clientId: 1234 },
-  ];
+  ],
+};
 
-  const result = products.filter((product) => product.title.includes(search));
+const searchFunctions = {
+  products: (query) => (product) => {
+    return product.title.includes(query);
+  },
+  invoices: (query) => (invoice) => {
+    return (
+      invoice.invoiceId === parseInt(query) ||
+      String(invoice.clientId).includes(query)
+    );
+  },
+};
 
-  console.log("result:", result);
+const mappers = {
+  products: (product) => <li key={product.title}>{product.title}</li>,
+  invoices: (invoice) => (
+    <li key={invoice.invoiceId}>
+      Id: {invoice.invoiceId}, client: {invoice.clientId}
+    </li>
+  ),
+};
+
+function App() {
+  const [entity, setEntity] = useState("invoices");
+  const [results, setResults] = useState([]);
+
+  const handleSearch = (query) => {
+    const foundItems = data[entity].filter(searchFunctions[entity](query));
+    setResults(foundItems);
+  };
+
+  // const result = products.filter((product) => product.title.includes(search));
+  // console.log("result:", result);
 
   return (
     <div className="App">
-      <input type="text" onChange={(e) => setSearch(e.target.value)} />
-      <button onClick={() => setSearch(search)}>go</button>
-      {result.map((res) => (
-        <li>{res.title}</li>
-      ))}
+      {/* <input type="text" onChange={(e) => setSearch(e.target.value)} />
+      <button onClick={() => setSearch(search)}>go</button> */}
+      {results.map(mappers[entity])}
+      <select
+        onChange={(e) => {
+          console.log(e.target.value);
+          setEntity(e.target.value);
+        }}
+      >
+        {Object.keys(data).map((entity) => (
+          <option>{entity}</option>
+        ))}
+      </select>
       <div>
+        {/* <SearchBar
+          label={<Label htmlFor="something">Search for users</Label>}
+          input={<InputField placeholder="type something" id="something" />}
+          button={<Button onClick={click}>Go</Button>}
+        /> */}
+
         <SearchBar
-          label={<Label />}
-          input={<InputField />}
-          button={<Button click={click} />}
+          handleSearch={handleSearch}
+          entity={entity}
+          suggestions={data[entity].map((product) => product.title)}
         />
       </div>
     </div>
