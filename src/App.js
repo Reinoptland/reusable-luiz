@@ -15,7 +15,7 @@ function App() {
 
   const products = [
     { title: "tablet", price: 80 },
-    { title: "usb adpator", price: 10 },
+    { title: "usb adaptor", price: 10 },
     { title: "e-reader", price: 35 },
     { title: "adaptor-cable", price: 8 },
     { title: "mobile cable", price: 10 },
@@ -102,10 +102,17 @@ function App() {
     { invoiceId: 10, clientId: 1234 },
   ];
 
+  const result = products.filter((product) => product.title.includes(search));
+
+  console.log("result:", result);
+
   return (
     <div className="App">
       <input type="text" onChange={(e) => setSearch(e.target.value)} />
-      <button onClick={(e) => setSearch(e.target.value)}>go</button>
+      <button onClick={() => setSearch(search)}>go</button>
+      {result.map((res) => (
+        <li>{res.title}</li>
+      ))}
       <div>
         <SearchBar
           label={<Label />}
