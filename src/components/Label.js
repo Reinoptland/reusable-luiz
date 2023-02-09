@@ -5,8 +5,6 @@ export default function Label({
   children,
   ...props
 }) {
-  console.log("props/children", props);
-
   return (
     <div>
       <label {...props} className={`basic-label ${variant}`} for="something">

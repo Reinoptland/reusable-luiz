@@ -3,8 +3,12 @@ import Button from "./components/Button";
 import InputField from "./components/InputField";
 import Label from "./components/Label";
 import SearchBar from "./components/SearchBar";
+import { useState } from "react";
 
 function App() {
+  const [search, setSearch] = useState("");
+  console.log("search:", search);
+
   const click = () => {
     console.log("Hey you!");
   };
@@ -100,6 +104,8 @@ function App() {
 
   return (
     <div className="App">
+      <input type="text" onChange={(e) => setSearch(e.target.value)} />
+      <button onClick={(e) => setSearch(e.target.value)}>go</button>
       <div>
         <SearchBar
           label={<Label />}
