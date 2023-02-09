@@ -10,7 +10,7 @@ export default function Label({
   return (
     <div>
       <label {...props} className={`basic-label ${variant}`} for="something">
-        {children}
+        search for {children}
       </label>
     </div>
   );

@@ -1,16 +1,33 @@
 .sb-main {
   width: 100%;
+  min-height: 7rem;
   border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sb-label {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+.sb-button {
+  display: flex;
+  flex-direction: row;
 }
 
 .btn {
+  min-width: 5rem;
   padding: 14px 21px;
-  border-radius: 26px;
-  color: white;
+  border-radius: 10px;
+  color: black;
   font-size: 18px;
   font-weight: 700;
   border: none;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
+  margin-left: 5px;
 }
 
 .success {
@@ -27,7 +44,8 @@
 }
 
 .primary {
-  background: lightblue;
+  background: linear-gradient(180deg, lightblue, white);
+  border: 2px solid purple;
 }
 
 .large {
@@ -42,6 +60,11 @@
   font-size: 10px;
   font-weight: 500;
   padding: 1rem 5rem;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
 }
 
 .products {
@@ -52,14 +75,31 @@
 }
 
 .input-basic {
-  font-size: 28px;
+  font-size: 22px;
   width: 22rem;
-  background: pink;
+  background: white;
+  padding: 5px;
 }
 
 .default-label {
-  background: yellowgreen;
+  /* background: lightblue; */
+  /* background: linear-gradient(180deg, white, lightblue); */
+  background: linear-gradient(180deg, white, lightblue);
+  border: 2px solid purple;
+}
 
-  border: 5px solid red;
-  font-size: 18px;
+.invoice-label {
+  background: linear-gradient(180deg, white, olivedrab);
+  border: 2px solid firebrick;
+  color: firebrick;
+}
+
+.product-label {
+  background: linear-gradient(180deg, white, rgb(254, 170, 170));
+  border: 2px solid olive;
+}
+
+.client-label {
+  background: linear-gradient(180deg, white, rgb(236, 175, 236));
+  border: 2px solid red;
 }

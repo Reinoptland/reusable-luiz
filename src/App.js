@@ -102,26 +102,11 @@ function App() {
     <div className="App">
       <div>
         <SearchBar
-          label={<Label>search here</Label>}
-          input={<InputField>product search</InputField>}
-          button={<Button>confirm</Button>}
+          label={<Label />}
+          input={<InputField />}
+          button={<Button />}
         />
       </div>
-      <div>
-        <Button variant="success">Lukas is here</Button>
-        <Button>Lukas is here</Button>
-      </div>
-      <div>
-        <Label variant="products">search products</Label>
-      </div>
-      {/* <InputField type="text" inputVariant="large" /> */}
-      {/* <input placeholder="enter search" /> */}
-      <InputField
-        type="text"
-        placeholder="enter prod name"
-        variant="default-label"
-      />
-      <InputField type="number">here</InputField>
     </div>
   );
 }
